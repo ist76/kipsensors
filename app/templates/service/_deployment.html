@@ -1,0 +1,78 @@
+<!-- СЕКЦИЯ МИГРАЦИИ И РАЗВЕРТЫВАНИЯ -->
+<div class="row migration-section">
+    <div class="col-md-12">
+        <div class="panel panel-warning panel-shadow">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="glyphicon glyphicon-transfer"></i> Резервное копирование и Развертывание</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    
+<!-- ЛЕВАЯ КОЛОНКА: ЭКСПОРТ (Выгрузка) -->
+<div class="col-md-6 text-center" style="border-right: 1px solid #ddd;">
+    <h4>Выгрузка системы</h4>
+    <p class="text-muted small">Получение актуальных данных и структуры текущей базы.</p>
+    <br>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <!-- Кнопка ДАННЫЕ -->
+            <a href="{{ url_for('service.export_data') }}" class="btn btn-primary btn-block btn-lg" style="margin-bottom: 10px;">
+                <i class="glyphicon glyphicon-download-alt"></i> Скачать Данные (.json)
+            </a>
+            <!-- Кнопка СТРУКТУРА -->
+            <a href="{{ url_for('service.export_schema') }}" class="btn btn-primary btn-block btn-lg">
+                <i class="glyphicon glyphicon-file"></i> Скачать Структуру (.sql)
+            </a>
+        </div>
+    </div>
+    <br>
+    <p class="help-block small">Рекомендуется сохранять оба файла перед миграцией.</p>
+</div>
+                    
+                    <!-- ПРАВАЯ КОЛОНКА: ИМПОРТ И ИНСТАЛЛЯЦИЯ -->
+                    <div class="col-md-6">
+                        <h4 class="text-center">Развертывание системы</h4>
+                        
+                        <!-- ШАГ 1: SQL СХЕМА -->
+                        <form action="{{ url_for('service.import_schema') }}" method="POST" enctype="multipart/form-data" style="margin-bottom: 20px;">
+                            <div class="form-group">
+                                <label class="small text-muted">Шаг 1: Загрузить структуру (.sql)</label>
+                                <input type="file" name="schema_file" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-warning btn-block">
+                                <i class="glyphicon glyphicon-tasks"></i> Развернуть таблицы и процедуры
+                            </button>
+                        </form>
+
+                        <hr>
+
+                        <!-- ШАГ 2: JSON ДАННЫЕ -->
+                        <form action="{{ url_for('service.import_data') }}" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label class="small text-muted">Шаг 2: Загрузить данные (.json)</label>
+                                <input type="file" name="backup_file" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-danger btn-block">
+                                <i class="glyphicon glyphicon-upload"></i> Загрузить содержимое таблиц (Full Sync)
+                            </button>
+                        </form>
+
+                        <hr>
+
+                        <!-- ШАГ 3: ФИКСАЦИЯ (Persistence) -->
+                        <div class="well well-sm" style="background-color: #fcf8e3; border: 1px solid #faebcc;">
+                            <h5 class="text-center"><strong>Шаг 3: Завершение</strong></h5>
+                            <p class="small text-muted text-center">Привязать текущие учетные данные (<strong>{{ session.get('temp_db_user') }}</strong>) к приложению.</p>
+                            <form action="{{ url_for('service.save_config') }}" method="POST">
+                                <button type="submit" class="btn btn-info btn-block btn-lg">
+                                    <i class="glyphicon glyphicon-floppy-save"></i> Зафиксировать настройки
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                </div> <!-- /row -->
+            </div> <!-- /panel-body -->
+        </div> <!-- /panel -->
+    </div>
+</div>

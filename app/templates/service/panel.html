@@ -1,0 +1,29 @@
+{% extends "service/layout.html" %}
+
+{% block service_content %}
+    {# 1. Проверка состояния базы данных #}
+    {% if db_ready %}
+        {# Блок управления пользователями (Создание + Список) #}
+        {% include 'service/_user_manager.html' %}
+    {% else %}
+        {# Блок-заглушка: если таблицы еще не созданы #}
+        {% include 'service/_db_warning.html' %}
+    {% endif %}
+
+    <hr class="migration-section">
+
+    {# 2. Блок развертывания и миграции (SQL, JSON, Фиксация) #}
+    {# Этот блок доступен ВСЕГДА, чтобы можно было поднять систему с нуля #}
+    {% include 'service/_deployment.html' %}
+
+    <div class="row" style="margin-top: 50px; margin-bottom: 20px;">
+        <div class="col-md-12 text-center">
+            <p class="text-muted small">
+                <i class="glyphicon glyphicon-info-sign"></i> 
+                Текущая база: <strong>{{ session.get('temp_db_name', 'не выбрана') }}</strong> | 
+                Пользователь СУБД: <strong>{{ session.get('temp_db_user') }}</strong>
+            </p>
+        </div>
+    </div>
+{% endblock %}
+

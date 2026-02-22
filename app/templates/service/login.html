@@ -1,0 +1,25 @@
+{% extends "service/layout.html" %}
+
+{% block service_content %}
+<div class="row">
+    <div class="col-md-4 col-md-offset-4 well panel-shadow">
+        <h3 class="text-center"><i class="glyphicon glyphicon-cog"></i> Вход в сервис</h3>
+        <p class="text-muted text-center small">Авторизация прямого доступа к СУБД</p>
+        <hr>
+        
+        <form method="POST" action="{{ url_for('service.auth') }}">
+            <div class="form-group">
+                <label><i class="glyphicon glyphicon-user"></i> Логин СУБД:</label>
+                <input type="text" name="db_user" class="form-control" placeholder="напр.: root" required autofocus>
+            </div>
+            <div class="form-group">
+                <label><i class="glyphicon glyphicon-lock"></i> Пароль СУБД:</label>
+                <input type="password" name="db_password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-danger btn-block">Подключиться к СУБД</button>
+            <a href="{{ url_for('login') }}" class="btn btn-link btn-block text-muted small">Вернуться к обычному входу</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

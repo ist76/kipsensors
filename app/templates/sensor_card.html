@@ -1,0 +1,166 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+{# МАКРОС для строк формы #}
+{% macro form_row(label, name, value, can_edit, type='text', hidden_val=None) %}
+<tr>
+    <th class="active" width="35%">{{ label }}</th>
+    <td>
+        {% if edit_mode and can_edit %}
+            <input type="{{ type }}" name="{{ name }}" class="form-control" value="{{ value }}">
+        {% else %}
+            <p class="form-control-static"><strong>{{ value if value is not none else '—' }}</strong></p>
+            {% if hidden_val is not none %}<input type="hidden" name="{{ name }}" value="{{ hidden_val }}">{% endif %}
+        {% endif %}
+    </td>
+</tr>
+{% endmacro %}
+
+{% block content %}
+<div class="container">
+    <!-- ВЕРХНЯЯ ПАНЕЛЬ С КНОПКАМИ -->
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-md-7">
+            <div style="display: flex; align-items: center;">
+                <h2 style="margin: 0; margin-right: 15px;">Датчик: <span class="text-primary">{{ sensor[0] }}</span></h2>
+                <button id="theme-toggle" class="btn btn-default btn-square" title="Сменить тему">
+                    <i class="glyphicon glyphicon-adjust"></i>
+                </button>
+            </div>
+            <p class="text-muted">{{ sensor[1] }}</p>
+        </div>
+        <div class="col-md-5 text-right">
+            <a href="{{ back_url }}" class="btn btn-default">← К списку</a>
+            
+            {% if not edit_mode %}
+                <a href="{{ url_for('sensor_details', kks=sensor[0], edit=1, back_url=back_url) }}" class="btn btn-primary">
+                    <i class="glyphicon glyphicon-pencil"></i> Редактировать
+                </a>
+                
+                {# КНОПКА УДАЛЕНИЯ: Только для Администратора и только в режиме просмотра #}
+                {% if user.role == 'admpers' %}
+                <form action="{{ url_for('delete_sensor', item_id=sensor[0]) }}" method="POST" style="display: inline-block; margin-left: 5px;" 
+                      onsubmit="return confirm('ВНИМАНИЕ!\n\nВы собираетесь БЕЗВОЗВРАТНО удалить датчик {{ sensor[0] }}.\nБудут удалены записи в истории и неиспользуемые записи в справочниках.\n\nПродолжить?');">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="glyphicon glyphicon-trash"></i> Удалить
+                    </button>
+                </form>
+                {% endif %}
+
+            {% else %}
+                <a href="{{ url_for('sensor_details', kks=sensor[0], back_url=back_url) }}" class="btn btn-warning">Отмена</a>
+            {% endif %}
+        </div>
+    </div>
+    <hr>
+
+    <form action="/update_sensor" method="POST">
+        <input type="hidden" name="kks" value="{{ sensor[0] }}">
+        <input type="hidden" name="back_url" value="{{ back_url }}">
+        
+        <div class="row">
+            <div class="col-md-7">
+                <div class="panel panel-{{ 'warning' if edit_mode else 'primary' }}">
+                    <div class="panel-heading"><h3 class="panel-title">Технические характеристики</h3></div>
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th class="active">Расположение:</th>
+                                <td>Ряд: {{ sensor[4] }}, Ось: {{ sensor[5] }}, Отм: {{ sensor[6] }}</td>
+                            </tr>
+                            <tr>
+                                <th class="active">Пределы измерения:</th>
+                                <td><strong>{{ sensor[9] }} ... {{ sensor[10] }}</strong> ({{ sensor[8] }})</td>
+                            </tr>
+                            <tr>
+                                <th class="active">Текущий статус:</th>
+                                <td>
+                                    {% if edit_mode %}
+                                        <select name="status_id" class="form-control">
+                                            {% for st in all_statuses %}
+                                                <option value="{{ st[0] }}" {{ 'selected' if st[0]|int == sensor[13]|int }}>{{ st[1] }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    {% else %}
+                                        <span class="label label-{{ 'success' if sensor[7] == 'в работе' else 'danger' }}">{{ sensor[7] }}</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="active">Модель (Тип):</th>
+                                <td>
+                                    {% if edit_mode and user.role in ['repair', 'admpers'] %}
+                                        <select name="type_id" class="form-control">
+                                            {% for t in all_types %}
+                                                <option value="{{ t[0] }}" {{ 'selected' if t[0]|int == sensor[14]|int }}>{{ t[1] }} (ID: {{ t[0] }})</option>
+                                            {% endfor %}
+                                        </select>
+                                    {% else %}
+                                        <p class="form-control-static"><strong>{{ sensor[2] }} {{ sensor[3] }}</strong></p>
+                                        <input type="hidden" name="type_id" value="{{ sensor[14] }}">
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {{ form_row('На складе (шт):', 'stock_count', sensor[12], user.role in ['repair', 'admpers'], type='number', hidden_val=sensor[12]) }}
+                            <tr>
+                                <th class="active">Защита:</th>
+                                <td>
+                                    {% if edit_mode and user.role == 'admpers' %}
+                                        <input type="checkbox" name="is_protective" {{ 'checked' if sensor[11]|int == 1 }}> Активна
+                                    {% else %}
+                                        <strong class="{{ 'status-alert' if sensor[11]|int == 1 else '' }}">{{ 'ДА' if sensor[11]|int == 1 else 'НЕТ' }}</strong>
+                                        <input type="hidden" name="is_protective_hidden" value="{{ 1 if sensor[11]|int == 1 else 0 }}">
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    {% if edit_mode %}<div class="panel-footer"><button type="submit" class="btn btn-success btn-block btn-lg">Сохранить</button></div>{% endif %}
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="panel panel-default">
+                    <div class="panel-heading">История изменений</div>
+                    <div class="panel-body history-table-container">
+                        <table class="table table-striped table-condensed" style="font-size: 0.9em;">
+                            <thead class="history-header">
+                                <tr><th>Дата</th><th>Автор</th><th>Статус</th></tr>
+                            </thead>
+                            <tbody>
+                                {% for h in history %}
+                                <tr><td><small>{{ h[0] }}</small></td><td>{{ h[1] }}</td><td><span class="label label-default">{{ h[3] }}</span></td></tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+    const themeBtn = document.getElementById("theme-toggle");
+    function applyTheme() {
+        if (localStorage.getItem("theme") === "gray") {
+            document.body.classList.add("theme-gray");
+        } else {
+            document.body.classList.remove("theme-gray");
+        }
+    }
+    applyTheme();
+    themeBtn.onclick = function() {
+        localStorage.setItem("theme", document.body.classList.contains("theme-gray") ? "light" : "gray");
+        applyTheme();
+    };
+</script>
+{% endblock %}
+

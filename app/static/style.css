@@ -1,0 +1,128 @@
+/* ==========================================
+   1. ПЕРЕМЕННЫЕ ЦВЕТОВ (THEMES)
+   ========================================== */
+:root {
+    --bg-color: #f4f7f6;
+    --sidebar-bg: #ffffff;
+    --text-color: #333333;
+    --panel-bg: #ffffff;
+    --border-color: #dee2e6;
+    --link-color: #0056b3;
+    --alert-color: #ff0000;
+    --input-bg: #ffffff;
+}
+
+body.theme-gray {
+    --bg-color: #2c2f33;
+    --sidebar-bg: #23272a;
+    --text-color: #e9ecef;
+    --panel-bg: #2c2f33;
+    --border-color: #4f545c;
+    --link-color: #7289da;
+    --alert-color: #ff4747;
+    --input-bg: #4f545c;
+}
+
+/* ==========================================
+   2. БАЗОВЫЕ СТИЛИ И ШРИФТЫ
+   ========================================== */
+body { 
+    background-color: var(--bg-color); 
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+/* Выравнивание цифр (Маюскульные/Табличные цифры для KKS) */
+.table, .form-control-static, .kks-link, .user-name {
+    font-variant-numeric: lining-nums tabular-nums;
+    -moz-font-feature-settings: "lnum", "tnum";
+    -webkit-font-feature-settings: "lnum", "tnum";
+    font-feature-settings: "lnum", "tnum";
+}
+
+/* Стили профиля пользователя */
+.user-name {
+    font-size: 1.25em; /* Увеличено на 25% */
+    display: block;
+    margin-bottom: 2px;
+    line-height: 1.2;
+}
+
+.user-role-desc {
+    font-size: 0.9em;
+    opacity: 0.8;
+    display: block;
+}
+
+/* ==========================================
+   3. СТРУКТУРА И ПАНЕЛИ
+   ========================================== */
+.sidebar { 
+    background-color: var(--sidebar-bg); 
+    min-height: 100vh; 
+    border-right: 1px solid var(--border-color); 
+    padding: 20px; 
+}
+
+.content-area { padding: 20px; }
+
+.sidebar-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 5px; 
+}
+
+.btn-square { 
+    width: 30px; 
+    height: 30px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border-radius: 4px; 
+}
+
+.table-container, .panel, .well, .jumbotron { 
+    background-color: var(--panel-bg) !important; 
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+
+.form-centered-container { margin-top: 50px; }
+.panel-shadow { box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+
+/* ==========================================
+   4. ТАБЛИЦЫ И ИНДИКАЦИЯ
+   ========================================== */
+.table { color: var(--text-color); }
+th { 
+    background-color: #007bff !important; 
+    color: white; 
+    white-space: nowrap; 
+    vertical-align: middle !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) { background-color: rgba(0, 0, 0, 0.03); }
+body.theme-gray .table-striped > tbody > tr:nth-of-type(odd) { background-color: rgba(255, 255, 255, 0.05); }
+
+/* Мягкий Hover для темной темы */
+body.theme-gray .table-hover > tbody > tr:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.kks-link { font-weight: bold; color: var(--link-color); text-decoration: underline; }
+.status-alert { color: var(--alert-color); font-weight: bold; }
+
+/* ==========================================
+   5. ЭЛЕМЕНТЫ УПРАВЛЕНИЯ
+   ========================================== */
+body.theme-gray .form-control, body.theme-gray select {
+    background-color: var(--input-bg);
+    color: white;
+    border-color: var(--border-color);
+}
+
+.history-table-container { max-height: 480px; overflow-y: auto; background-color: var(--panel-bg); }
+.history-header { position: sticky; top: 0; background-color: var(--sidebar-bg) !important; z-index: 10; }
+

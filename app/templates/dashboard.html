@@ -1,0 +1,152 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Система КИПиА{% endblock %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- ЛЕВАЯ ПАНЕЛЬ -->
+        <div class="col-md-3 sidebar">
+            <div class="sidebar-header">
+                <h3 class="text-primary" style="margin: 0;"><i class="glyphicon glyphicon-cog"></i> КИПиА</h3>
+                <button id="theme-toggle" class="btn btn-default btn-square" title="Сменить тему">
+                    <i class="glyphicon glyphicon-adjust"></i>
+                </button>
+            </div>
+            <hr>
+            
+            <!-- ПАНЕЛЬ ПОЛЬЗОВАТЕЛЯ -->
+            <div class="panel panel-default">
+                <div class="panel-heading">Пользователь</div>
+                <div class="panel-body text-center">
+                    <strong class="user-name">{{ user.full_name }}</strong>
+                    <span class="text-muted user-role-desc">{{ user.role_desc }}</span>
+                    
+                    <hr style="margin: 10px 0;">
+                    <a href="{{ url_for('change_password') }}" class="btn btn-default btn-xs btn-block">
+                        <i class="glyphicon glyphicon-lock"></i> Сменить пароль
+                    </a>
+                    <a href="/logout" class="btn btn-danger btn-xs btn-block" style="margin-top:5px;">Выйти</a>
+                </div>
+            </div><hr>
+
+            <!-- ПОИСК -->
+            <div class="panel panel-info">
+                <div class="panel-heading"><i class="glyphicon glyphicon-search"></i> Поиск</div>
+                <div class="panel-body">
+                    <form action="{{ url_for('search') }}" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="search_query" class="form-control" placeholder="Шаблон (напр. *MBL*)" required>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="search_type" value="kks" checked> по KKS</label>
+                        </div>
+                        <div class="radio" style="margin-top: 0;">
+                            <label><input type="radio" name="search_type" value="name"> по наименованию</label>
+                        </div>
+                        <button type="submit" class="btn btn-info btn-block btn-sm">Найти</button>
+                    </form>
+                </div>
+            </div><hr>
+
+            <!-- ОТЧЕТЫ И УПРАВЛЕНИЕ -->
+            <div class="form-group">
+                <label>Отчеты:</label>
+                <a href="/full_report" class="btn btn-primary btn-block">Полный отчет</a>
+                <a href="/small_report" class="btn btn-warning btn-block" style="margin-top:10px;">Неисправности</a>
+                
+                <hr>
+                
+                {% if user.role == 'admpers' %}
+                <a href="{{ url_for('add_sensor') }}" class="btn btn-success btn-block">
+                    <i class="glyphicon glyphicon-plus"></i> Зарегистрировать датчик
+                </a>
+                {% endif %}
+
+                {% if user.role in ['admpers', 'repair'] %}
+                <a href="{{ url_for('add_type') }}" class="btn btn-default btn-block" style="margin-top:5px;">
+                    <i class="glyphicon glyphicon-list"></i> Добавить модель
+                </a>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- КОНТЕНТ -->
+        <div class="col-md-9 content-area">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-{{ category }} alert-dismissible">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+
+            <h2>{{ report_title }}</h2>
+            
+            {% if data %}
+            <div class="table-container">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered table-condensed">
+                        <thead>
+                            <tr>{% for h in headers %}<th>{{ h }}</th>{% endfor %}</tr>
+                        </thead>
+                        <tbody>
+                            {% for row in data %}
+                            <tr>
+                                {% for cell in row %}
+                                    {% set h_name = headers[loop.index0] %}
+                                    <td>
+                                        {% if loop.index0 == 0 %}
+                                            <a href="{{ url_for('sensor_details', kks=cell) }}" class="kks-link">{{ cell }}</a>
+                                        {% elif h_name == 'Текущее состояние' and cell != 'в работе' %}
+                                            <span class="status-alert">{{ cell }}</span>
+                                        {% elif (h_name == 'Защитный' or h_name == 'Защита') and cell == 'Да' %}
+                                            <span class="status-alert">{{ cell }}</span>
+                                        {% else %}
+                                            {{ cell }}
+                                        {% endif %}
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% else %}
+            <div class="jumbotron text-center" style="border:1px dashed #ccc;">
+                <p>Выберите отчет или воспользуйтесь поиском</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+    const themeBtn = document.getElementById("theme-toggle");
+    function applyTheme() {
+        if (localStorage.getItem("theme") === "gray") {
+            document.body.classList.add("theme-gray");
+        } else {
+            document.body.classList.remove("theme-gray");
+        }
+    }
+    applyTheme();
+    themeBtn.onclick = function() {
+        localStorage.setItem("theme", document.body.classList.contains("theme-gray") ? "light" : "gray");
+        applyTheme();
+    };
+</script>
+{% endblock %}
+

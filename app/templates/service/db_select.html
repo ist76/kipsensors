@@ -1,0 +1,28 @@
+{% extends "service/layout.html" %}
+
+{% block service_content %}
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 well panel-shadow">
+        <h3 class="text-center"><i class="glyphicon glyphicon-tasks"></i> Выбор базы данных</h3>
+        <p class="text-muted text-center small">
+            Учетные данные СУБД подтверждены.<br>
+            Выберите рабочую базу для управления:
+        </p>
+        <hr>
+        
+        <form action="{{ url_for('service.confirm_db') }}" method="POST">
+            <div class="list-group">
+                {% for db in databases %}
+                <button type="submit" name="selected_db" value="{{ db }}" class="list-group-item list-group-item-action text-primary">
+                    <i class="glyphicon glyphicon-hdd"></i> <strong>{{ db }}</strong>
+                </button>
+                {% endfor %}
+            </div>
+            <a href="{{ url_for('service.auth') }}" class="btn btn-link btn-block text-muted small">
+                <i class="glyphicon glyphicon-arrow-left"></i> Назад к экрану авторизации
+            </a>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

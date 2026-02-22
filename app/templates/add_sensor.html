@@ -1,0 +1,119 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container form-centered-container">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-primary panel-shadow">
+            <div class="panel-heading">
+                <h4><i class="glyphicon glyphicon-plus"></i> Регистрация датчика</h4>
+            </div>
+            <div class="panel-body">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                    {% for category, message in messages %}<div class="alert alert-{{ category }}">{{ message }}</div>{% endfor %}
+                  {% endif %}
+                {% endwith %}
+
+                <form method="POST">
+                    <div class="row">
+                        <div class="col-md-4">
+                          <label>KKS код:</label>
+                              <div class="input-group">
+                                  <input type="text" name="kks" id="kks-input" class="form-control" maxlength="12" required autofocus>
+                                  <span class="input-group-addon" id="kks-status">
+                                      <i class="glyphicon glyphicon-minus"></i>
+                                  </span>
+                              </div>
+                              <small id="kks-error" class="text-danger" style="display: none;">Этот KKS уже занят!</small>
+                          </div>
+                        <div class="col-md-8">
+                            <label>Тип (Модель):</label>
+                            <select name="type_id" class="form-control" required>
+                                {% for t in types %}<option value="{{ t[0] }}">{{ t[1] }} {{ t[2] }}</option>{% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top:15px;">
+                        <label>Диспетчерское наименование:</label>
+                        <input type="text" name="name_text" class="form-control" placeholder="Введите полное название" required>
+                    </div>
+
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-md-4"><label>Ряд:</label><input type="text" name="row" class="form-control" required></div>
+                            <div class="col-md-4"><label>Ось:</label><input type="text" name="axis" class="form-control" required></div>
+                            <div class="col-md-4"><label>Отм:</label><input type="text" name="mark" class="form-control" required></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Ед. изм:</label>
+                            <input list="unit-list" name="unit_text" class="form-control" required>
+                            <datalist id="unit-list">
+                                {% for u in units %}<option value="{{ u[0] }}">{% endfor %}
+                            </datalist>
+                        </div>
+                        <div class="col-md-4"><label>Нижний предел:</label><input type="number" step="any" name="lower" class="form-control" value="0"></div>
+                        <div class="col-md-4"><label>Верхний предел:</label><input type="number" step="any" name="upper" class="form-control" required></div>
+                    </div>
+
+                    <div class="checkbox"><label><input type="checkbox" name="is_protective"> Входит в схему защит</label></div>
+                    <hr>
+                    <button type="submit" class="btn btn-success btn-block btn-lg">Зарегистрировать</button>
+                    <a href="{{ url_for('index') }}" class="btn btn-default btn-block">Отмена</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+    // Тема (уже есть)
+    if (localStorage.getItem("theme") === "gray") document.body.classList.add("theme-gray");
+
+    // Валидация KKS
+    const kksInput = document.getElementById('kks-input');
+    const kksStatus = document.getElementById('kks-status');
+    const kksError = document.getElementById('kks-error');
+    const submitBtn = document.querySelector('button[type="submit"]');
+
+    kksInput.addEventListener('input', function() {
+        const kks = this.value.trim();
+        
+        // Начинаем проверку, если введено более 5 символов
+        if (kks.length > 5) {
+            fetch(`/check_kks/${kks}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.exists) {
+                        // KKS ЗАНЯТ
+                        kksStatus.innerHTML = '<i class="glyphicon glyphicon-remove text-danger"></i>';
+                        kksError.style.display = 'block';
+                        submitBtn.disabled = true; // Блокируем кнопку
+                    } else {
+                        // KKS СВОБОДЕН
+                        kksStatus.innerHTML = '<i class="glyphicon glyphicon-ok text-success"></i>';
+                        kksError.style.display = 'none';
+                        submitBtn.disabled = false;
+                    }
+                });
+        } else {
+            kksStatus.innerHTML = '<i class="glyphicon glyphicon-minus"></i>';
+            kksError.style.display = 'none';
+            submitBtn.disabled = false;
+        }
+    });
+</script>
+{% endblock %}
+
+

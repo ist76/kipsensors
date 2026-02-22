@@ -1,0 +1,52 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container form-centered-container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary panel-shadow">
+                <div class="panel-heading">
+                    <h4 class="text-center"><i class="glyphicon glyphicon-plus"></i> Новая модель датчика</h4>
+                </div>
+                <div class="panel-body">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ category }}">{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    
+                    <form method="POST">
+                        <div class="form-group">
+                            <label>Производитель:</label>
+                            <input type="text" name="manufacturer" class="form-control" placeholder="напр. Rosemount" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label>Модель:</label>
+                            <input type="text" name="model" class="form-control" placeholder="напр. 0065C" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-success btn-block btn-lg">Создать запись</button>
+                            <a href="{{ url_for('index') }}" class="btn btn-default btn-block">Отмена</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+    if (localStorage.getItem("theme") === "gray") document.body.classList.add("theme-gray");
+</script>
+{% endblock %}
+

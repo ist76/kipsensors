@@ -1,0 +1,43 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<style>
+    .panel-shadow { box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .migration-section { margin-top: 30px; border-top: 2px solid #eee; padding-top: 20px; }
+    .status-active { color: #5cb85c; font-weight: bold; }
+    .status-disabled { color: #d9534f; font-weight: bold; text-decoration: line-through; opacity: 0.6; }
+    .well-deployment { background-color: #fcf8e3; border: 1px solid #faebcc; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header" style="margin-top: 20px;">
+        <div class="pull-right">
+            <!-- Кнопка выхода из сессии БД -->
+            <a href="{{ url_for('service.logout') }}" class="btn btn-default">
+                <i class="glyphicon glyphicon-log-out"></i> Завершить сессию БД
+            </a>
+        </div>
+        <h1>Сервисный режим <small>v2.3 "Isolation"</small></h1>
+    </div>
+
+    <!-- Блок всплывающих сообщений (Flash) -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }} alert-dismissible shadow">
+            <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+            <i class="glyphicon glyphicon-info-sign"></i> {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <!-- Сюда вставляется контент из panel.html, login.html или db_select.html -->
+    {% block service_content %}{% endblock %}
+</div>
+{% endblock %}
+

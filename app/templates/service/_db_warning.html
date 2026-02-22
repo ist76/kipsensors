@@ -1,0 +1,16 @@
+<!-- Блок-заглушка: если таблицы Users еще не существует -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-warning text-center panel-shadow" style="padding: 40px; border-left: 5px solid #f0ad4e;">
+            <i class="glyphicon glyphicon-exclamation-sign" style="font-size: 48px; color: #f0ad4e;"></i>
+            <h3 style="margin-top: 20px; font-weight: bold;">База данных не инициализирована</h3>
+            <p class="lead text-muted">
+                В выбранной базе <strong>{{ session.get('temp_db_name') }}</strong> не обнаружена структура таблиц.
+            </p>
+            <p>
+                Используйте секцию <strong>"Развертывание системы"</strong> (ниже) для загрузки SQL-схемы или восстановления данных из JSON.
+            </p>
+        </div>
+    </div>
+</div>
+
