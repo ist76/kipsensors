@@ -1,6 +1,6 @@
 {
-    "DB_USER": "tech2",
-    "DB_PASSWORD": "tech2pswd",
-    "DB_NAME": "kipdb",
+    "DB_USER": "guest",
+    "DB_PASSWORD": "",
+    "DB_NAME": "",
     "DB_HOST": "localhost"
 }
