@@ -21,7 +21,7 @@
                         <select name="role_name" class="form-control" required>
                             <option value="" disabled selected>Выберите роль...</option>
                             {% for r in roles %}
-                                <option value="{{ r[0] }}">{{ r[0] }}</option>
+                                <option value="{{ r }}">{{ r }}</option>
                             {% endfor %}
                         </select>
                     </div>
