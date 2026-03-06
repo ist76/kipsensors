@@ -1,0 +1,1280 @@
+{
+    "Roles": [
+        {
+            "role_id": 1,
+            "role_name": "operpers",
+            "role_description": "Оперативный персонал"
+        },
+        {
+            "role_id": 2,
+            "role_name": "repair",
+            "role_description": "Ремонтный персонал"
+        },
+        {
+            "role_id": 3,
+            "role_name": "admpers",
+            "role_description": "Административный персонал"
+        }
+    ],
+    "Statuses": [
+        {
+            "status_id": 1,
+            "status_full": "в работе"
+        },
+        {
+            "status_id": 2,
+            "status_full": "недостоверность показаний"
+        },
+        {
+            "status_id": 3,
+            "status_full": "отсутствуют показания"
+        },
+        {
+            "status_id": 4,
+            "status_full": "в ремонте"
+        }
+    ],
+    "Names": [
+        {
+            "name_id": 1001,
+            "name_full": "Температура воды ЗКО за охладителем №1 генератора ПТ"
+        },
+        {
+            "name_id": 1002,
+            "name_full": "Температура воды ЗКО за охладителем №2 генератора ПТ"
+        },
+        {
+            "name_id": 1003,
+            "name_full": "Температура воды ЗКО за охладителем №3 генератора ПТ"
+        },
+        {
+            "name_id": 1004,
+            "name_full": "Температура воды ЗКО за охладителем №4 генератора ПТ"
+        },
+        {
+            "name_id": 1020,
+            "name_full": "Расход конденсата греющего пара из ПСГ-1 в ЛОК"
+        },
+        {
+            "name_id": 1050,
+            "name_full": "Температура обмотки статора генератора ПТ"
+        },
+        {
+            "name_id": 1120,
+            "name_full": "Давление воздуха перед служебным эжектором №1"
+        },
+        {
+            "name_id": 1121,
+            "name_full": "Давление воздуха перед служебным эжектором №2"
+        },
+        {
+            "name_id": 1122,
+            "name_full": "Давление воздуха перед пусковым эжектором"
+        },
+        {
+            "name_id": 1210,
+            "name_full": "Относительная вибрация вала в районе подшипника №1"
+        },
+        {
+            "name_id": 1220,
+            "name_full": "Абсолютная вибрация основания подшипника №2"
+        },
+        {
+            "name_id": 1350,
+            "name_full": "Относительное расширение на турбине низкого давления"
+        },
+        {
+            "name_id": 1440,
+            "name_full": "Положение многоходового запорного клапана СД"
+        },
+        {
+            "name_id": 1441,
+            "name_full": "Положение многоходового управляющего клапана СД"
+        },
+        {
+            "name_id": 1442,
+            "name_full": "Положение УП управляющего клапана СД"
+        },
+        {
+            "name_id": 1443,
+            "name_full": "Положение многоходового запорного клапана СД"
+        },
+        {
+            "name_id": 1444,
+            "name_full": "Положение многоходового управляющего клапана СД"
+        },
+        {
+            "name_id": 1445,
+            "name_full": "Положение УП  управляющего клапана СД"
+        },
+        {
+            "name_id": 1446,
+            "name_full": "Положение переключающего управляющего клапана НД"
+        },
+        {
+            "name_id": 1447,
+            "name_full": "Положение УП  управляющего клапана НД"
+        },
+        {
+            "name_id": 1560,
+            "name_full": "Давление воды перед подогревателем питательной воды"
+        },
+        {
+            "name_id": 1610,
+            "name_full": "Давление питательной воды в деаэраторе"
+        },
+        {
+            "name_id": 1615,
+            "name_full": "Уровень питательной воды в деаэраторе"
+        },
+        {
+            "name_id": 1780,
+            "name_full": "Температура масла в маслобаке ГТ"
+        },
+        {
+            "name_id": 1815,
+            "name_full": "Температура воздуха перед компрессором"
+        },
+        {
+            "name_id": 1816,
+            "name_full": "Температура выхлопных газов на выходе ГТ"
+        },
+        {
+            "name_id": 1818,
+            "name_full": "Температура воздуха за компрессором"
+        },
+        {
+            "name_id": 1820,
+            "name_full": "Температура воздуха внутри шкафа MBA01GD010"
+        },
+        {
+            "name_id": 1821,
+            "name_full": "Температура воздуха внутри шкафа MBA01GD011"
+        }
+    ],
+    "Types": [
+        {
+            "type_id": 201,
+            "manufacturer": "Almetra",
+            "model": "HTCT 444647"
+        },
+        {
+            "type_id": 202,
+            "manufacturer": "Almetra",
+            "model": "PT100"
+        },
+        {
+            "type_id": 251,
+            "manufacturer": "Balluff",
+            "model": "Btl5-E10-M0100"
+        },
+        {
+            "type_id": 301,
+            "manufacturer": "Bently Nevada",
+            "model": "330708"
+        },
+        {
+            "type_id": 302,
+            "manufacturer": "Bently Nevada",
+            "model": "74712"
+        },
+        {
+            "type_id": 351,
+            "manufacturer": "Rosemount",
+            "model": "3051CD"
+        },
+        {
+            "type_id": 352,
+            "manufacturer": "Rosemount",
+            "model": "3051TA"
+        },
+        {
+            "type_id": 353,
+            "manufacturer": "Rosemount",
+            "model": "3051TG"
+        },
+        {
+            "type_id": 401,
+            "manufacturer": "Rueger SA",
+            "model": "MDA7"
+        },
+        {
+            "type_id": 402,
+            "manufacturer": "Rueger SA",
+            "model": "TMI100"
+        },
+        {
+            "type_id": 403,
+            "manufacturer": "Rueger SA",
+            "model": "PBXSF150"
+        },
+        {
+            "type_id": 451,
+            "manufacturer": "TWK-ELEKTRONIK",
+            "model": "ID528"
+        },
+        {
+            "type_id": 501,
+            "manufacturer": "Vickers",
+            "model": "KFDC4V"
+        },
+        {
+            "type_id": 502,
+            "manufacturer": "Rosemount",
+            "model": "0065C"
+        },
+        {
+            "type_id": 503,
+            "manufacturer": "Lehner",
+            "model": "TypeN"
+        },
+        {
+            "type_id": 504,
+            "manufacturer": "Pfoertner",
+            "model": "Pt100"
+        }
+    ],
+    "Places": [
+        {
+            "place_id": 51,
+            "place_row": "Б",
+            "place_axis": "9",
+            "place_mark": "9,2"
+        },
+        {
+            "place_id": 52,
+            "place_row": "В",
+            "place_axis": "12",
+            "place_mark": "0"
+        },
+        {
+            "place_id": 53,
+            "place_row": "Г",
+            "place_axis": "7",
+            "place_mark": "14"
+        },
+        {
+            "place_id": 54,
+            "place_row": "Г",
+            "place_axis": "7",
+            "place_mark": "19,4"
+        },
+        {
+            "place_id": 55,
+            "place_row": "Г",
+            "place_axis": "7",
+            "place_mark": "7,5"
+        },
+        {
+            "place_id": 56,
+            "place_row": "Б",
+            "place_axis": "4",
+            "place_mark": "7,5"
+        },
+        {
+            "place_id": 57,
+            "place_row": "Б",
+            "place_axis": "4",
+            "place_mark": "7"
+        },
+        {
+            "place_id": 58,
+            "place_row": "Б",
+            "place_axis": "3",
+            "place_mark": "7"
+        },
+        {
+            "place_id": 59,
+            "place_row": "Б",
+            "place_axis": "2",
+            "place_mark": "7"
+        },
+        {
+            "place_id": 60,
+            "place_row": "Г",
+            "place_axis": "3",
+            "place_mark": "4,5"
+        },
+        {
+            "place_id": 61,
+            "place_row": "Б",
+            "place_axis": "2",
+            "place_mark": "4,5"
+        },
+        {
+            "place_id": 62,
+            "place_row": "А",
+            "place_axis": "1",
+            "place_mark": "3"
+        },
+        {
+            "place_id": 63,
+            "place_row": "Б",
+            "place_axis": "1",
+            "place_mark": "0"
+        },
+        {
+            "place_id": 65,
+            "place_row": "Б",
+            "place_axis": "9",
+            "place_mark": "4.5"
+        },
+        {
+            "place_id": 66,
+            "place_row": "В",
+            "place_axis": "7",
+            "place_mark": "0"
+        }
+    ],
+    "Units": [
+        {
+            "unit_id": 20,
+            "unit_name": " °C"
+        },
+        {
+            "unit_id": 21,
+            "unit_name": "mm"
+        },
+        {
+            "unit_id": 22,
+            "unit_name": "bar"
+        },
+        {
+            "unit_id": 23,
+            "unit_name": "%"
+        },
+        {
+            "unit_id": 24,
+            "unit_name": "град"
+        },
+        {
+            "unit_id": 25,
+            "unit_name": "kg/s"
+        }
+    ],
+    "Parts": [
+        {
+            "part_id": 102,
+            "part_type": 202,
+            "quantity": 5
+        },
+        {
+            "part_id": 104,
+            "part_type": 301,
+            "quantity": 0
+        },
+        {
+            "part_id": 107,
+            "part_type": 352,
+            "quantity": 2
+        },
+        {
+            "part_id": 108,
+            "part_type": 353,
+            "quantity": 3
+        },
+        {
+            "part_id": 109,
+            "part_type": 401,
+            "quantity": 2
+        },
+        {
+            "part_id": 110,
+            "part_type": 402,
+            "quantity": 7
+        },
+        {
+            "part_id": 111,
+            "part_type": 403,
+            "quantity": 6
+        },
+        {
+            "part_id": 112,
+            "part_type": 451,
+            "quantity": 2
+        },
+        {
+            "part_id": 113,
+            "part_type": 501,
+            "quantity": 0
+        },
+        {
+            "part_id": 116,
+            "part_type": 351,
+            "quantity": 4
+        },
+        {
+            "part_id": 117,
+            "part_type": 302,
+            "quantity": 4
+        },
+        {
+            "part_id": 119,
+            "part_type": 251,
+            "quantity": 7
+        },
+        {
+            "part_id": 122,
+            "part_type": 201,
+            "quantity": 5
+        }
+    ],
+    "Users": [
+        {
+            "user_id": 1,
+            "username": "IvanovAB",
+            "password_hash": "scrypt:32768:8:1$5EgZp9xJlBitqvCR$c629a5984bd334986504014ac8b1bb8e543f045d9d1195bf87a50beace53210faec617982ecdeeba4638a8089562afe191bf2cd34c1cffaf4badee8fbe6fb399",
+            "full_name": "Иванов А.Б.",
+            "user_role": 1,
+            "is_active": 1
+        },
+        {
+            "user_id": 2,
+            "username": "PetrovVG",
+            "password_hash": "scrypt:32768:8:1$5EgZp9xJlBitqvCR$c629a5984bd334986504014ac8b1bb8e543f045d9d1195bf87a50beace53210faec617982ecdeeba4638a8089562afe191bf2cd34c1cffaf4badee8fbe6fb399",
+            "full_name": "Петров В.Г.",
+            "user_role": 2,
+            "is_active": 1
+        },
+        {
+            "user_id": 3,
+            "username": "SidorovDE",
+            "password_hash": "scrypt:32768:8:1$G71tQaPI7PqfLPB5$2397a40c8c228db95d39f9dd84a4332461b4a7cf61359def51d19dea113457d597b92c7e4905dcee3c5ff27fb07b4a56614d39f6c85e9c76972b03f108fc8140",
+            "full_name": "Сидоров Д.Е.",
+            "user_role": 3,
+            "is_active": 1
+        },
+        {
+            "user_id": 4,
+            "username": "SmirnovAM",
+            "password_hash": "",
+            "full_name": "Смирнов А.М.",
+            "user_role": 1,
+            "is_active": 0
+        }
+    ],
+    "Sensors": [
+        {
+            "item_id": "81MBA01CT100",
+            "sensor_name": 1820,
+            "sensor_type": 504,
+            "sensor_place": 66,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 100.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "81MBA01CT101",
+            "sensor_name": 1821,
+            "sensor_type": 504,
+            "sensor_place": 66,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 100.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "81MBA80CT051",
+            "sensor_name": 1818,
+            "sensor_type": 503,
+            "sensor_place": 65,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 600.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "81MBA80CT052",
+            "sensor_name": 1818,
+            "sensor_type": 503,
+            "sensor_place": 65,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 600.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "81MBL30CT001",
+            "sensor_name": 1815,
+            "sensor_type": 201,
+            "sensor_place": 51,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": -40.0,
+            "sensor_upper": 70.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "81MBL30CT002",
+            "sensor_name": 1815,
+            "sensor_type": 201,
+            "sensor_place": 51,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": -40.0,
+            "sensor_upper": 70.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "81MBL30CT003",
+            "sensor_name": 1815,
+            "sensor_type": 201,
+            "sensor_place": 51,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": -40.0,
+            "sensor_upper": 70.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "81MBL30CT004",
+            "sensor_name": 1815,
+            "sensor_type": 201,
+            "sensor_place": 51,
+            "sensor_status": 2,
+            "sensor_units": 20,
+            "sensor_lower": -40.0,
+            "sensor_upper": 70.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "81MBL30CT005",
+            "sensor_name": 1815,
+            "sensor_type": 201,
+            "sensor_place": 51,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": -40.0,
+            "sensor_upper": 70.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "81MBL30CT006",
+            "sensor_name": 1815,
+            "sensor_type": 201,
+            "sensor_place": 51,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": -40.0,
+            "sensor_upper": 70.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "81MBL30CT007",
+            "sensor_name": 1815,
+            "sensor_type": 201,
+            "sensor_place": 51,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": -40.0,
+            "sensor_upper": 70.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "81MBL30CT008",
+            "sensor_name": 1815,
+            "sensor_type": 201,
+            "sensor_place": 51,
+            "sensor_status": 3,
+            "sensor_units": 20,
+            "sensor_lower": -40.0,
+            "sensor_upper": 70.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "81MBV10CT010",
+            "sensor_name": 1780,
+            "sensor_type": 201,
+            "sensor_place": 52,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": -40.0,
+            "sensor_upper": 70.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88LAA10CL002",
+            "sensor_name": 1615,
+            "sensor_type": 351,
+            "sensor_place": 53,
+            "sensor_status": 3,
+            "sensor_units": 21,
+            "sensor_lower": 0.0,
+            "sensor_upper": 3400.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88LAA10CL003",
+            "sensor_name": 1615,
+            "sensor_type": 351,
+            "sensor_place": 53,
+            "sensor_status": 1,
+            "sensor_units": 21,
+            "sensor_lower": 0.0,
+            "sensor_upper": 3400.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88LAA10CL004",
+            "sensor_name": 1615,
+            "sensor_type": 351,
+            "sensor_place": 53,
+            "sensor_status": 3,
+            "sensor_units": 21,
+            "sensor_lower": 0.0,
+            "sensor_upper": 3400.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88LAA10CP002",
+            "sensor_name": 1610,
+            "sensor_type": 352,
+            "sensor_place": 54,
+            "sensor_status": 1,
+            "sensor_units": 22,
+            "sensor_lower": 0.0,
+            "sensor_upper": 4.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88LAA10CP003",
+            "sensor_name": 1610,
+            "sensor_type": 401,
+            "sensor_place": 54,
+            "sensor_status": 1,
+            "sensor_units": 22,
+            "sensor_lower": 0.0,
+            "sensor_upper": 6.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88LAA70CP001",
+            "sensor_name": 1560,
+            "sensor_type": 353,
+            "sensor_place": 55,
+            "sensor_status": 2,
+            "sensor_units": 22,
+            "sensor_lower": 0.0,
+            "sensor_upper": 30.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "88LAA70CP002",
+            "sensor_name": 1560,
+            "sensor_type": 353,
+            "sensor_place": 55,
+            "sensor_status": 1,
+            "sensor_units": 22,
+            "sensor_lower": 0.0,
+            "sensor_upper": 30.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "88LAA70CP003",
+            "sensor_name": 1560,
+            "sensor_type": 353,
+            "sensor_place": 55,
+            "sensor_status": 1,
+            "sensor_units": 22,
+            "sensor_lower": 0.0,
+            "sensor_upper": 30.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MAB11CG001",
+            "sensor_name": 1440,
+            "sensor_type": 251,
+            "sensor_place": 56,
+            "sensor_status": 1,
+            "sensor_units": 21,
+            "sensor_lower": 0.0,
+            "sensor_upper": 125.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MAB11CG011",
+            "sensor_name": 1441,
+            "sensor_type": 251,
+            "sensor_place": 56,
+            "sensor_status": 1,
+            "sensor_units": 21,
+            "sensor_lower": 0.0,
+            "sensor_upper": 100.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MAB11CG031",
+            "sensor_name": 1442,
+            "sensor_type": 501,
+            "sensor_place": 56,
+            "sensor_status": 1,
+            "sensor_units": 23,
+            "sensor_lower": 0.0,
+            "sensor_upper": 100.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MAB12CG001",
+            "sensor_name": 1443,
+            "sensor_type": 251,
+            "sensor_place": 56,
+            "sensor_status": 1,
+            "sensor_units": 21,
+            "sensor_lower": 0.0,
+            "sensor_upper": 125.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MAB12CG011",
+            "sensor_name": 1444,
+            "sensor_type": 251,
+            "sensor_place": 56,
+            "sensor_status": 4,
+            "sensor_units": 21,
+            "sensor_lower": 0.0,
+            "sensor_upper": 100.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MAB12CG031",
+            "sensor_name": 1445,
+            "sensor_type": 501,
+            "sensor_place": 56,
+            "sensor_status": 1,
+            "sensor_units": 23,
+            "sensor_lower": 0.0,
+            "sensor_upper": 100.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MAC01CG011",
+            "sensor_name": 1446,
+            "sensor_type": 451,
+            "sensor_place": 56,
+            "sensor_status": 1,
+            "sensor_units": 24,
+            "sensor_lower": 0.0,
+            "sensor_upper": 90.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MAC01CG031",
+            "sensor_name": 1447,
+            "sensor_type": 501,
+            "sensor_place": 56,
+            "sensor_status": 1,
+            "sensor_units": 23,
+            "sensor_lower": 0.0,
+            "sensor_upper": 100.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MAC10CY011",
+            "sensor_name": 1350,
+            "sensor_type": 301,
+            "sensor_place": 57,
+            "sensor_status": 1,
+            "sensor_units": 21,
+            "sensor_lower": -3.7,
+            "sensor_upper": 19.9,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MAC10CY012",
+            "sensor_name": 1350,
+            "sensor_type": 301,
+            "sensor_place": 57,
+            "sensor_status": 1,
+            "sensor_units": 21,
+            "sensor_lower": -3.7,
+            "sensor_upper": 19.9,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MAD10CY021",
+            "sensor_name": 1210,
+            "sensor_type": 302,
+            "sensor_place": 58,
+            "sensor_status": 1,
+            "sensor_units": 21,
+            "sensor_lower": 0.0,
+            "sensor_upper": 400.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MAD10CY022",
+            "sensor_name": 1210,
+            "sensor_type": 302,
+            "sensor_place": 58,
+            "sensor_status": 2,
+            "sensor_units": 21,
+            "sensor_lower": 0.0,
+            "sensor_upper": 400.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "88MAD20CY019",
+            "sensor_name": 1220,
+            "sensor_type": 302,
+            "sensor_place": 59,
+            "sensor_status": 1,
+            "sensor_units": 21,
+            "sensor_lower": 0.0,
+            "sensor_upper": 400.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MAD20CY020",
+            "sensor_name": 1220,
+            "sensor_type": 302,
+            "sensor_place": 59,
+            "sensor_status": 1,
+            "sensor_units": 21,
+            "sensor_lower": 0.0,
+            "sensor_upper": 400.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MAJ12CP001",
+            "sensor_name": 1120,
+            "sensor_type": 403,
+            "sensor_place": 60,
+            "sensor_status": 1,
+            "sensor_units": 22,
+            "sensor_lower": 0.0,
+            "sensor_upper": 0.6,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MAJ13CP001",
+            "sensor_name": 1121,
+            "sensor_type": 403,
+            "sensor_place": 60,
+            "sensor_status": 1,
+            "sensor_units": 22,
+            "sensor_lower": 0.0,
+            "sensor_upper": 0.6,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MAJ15CP001",
+            "sensor_name": 1122,
+            "sensor_type": 403,
+            "sensor_place": 60,
+            "sensor_status": 4,
+            "sensor_units": 22,
+            "sensor_lower": 0.0,
+            "sensor_upper": 0.6,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MKA10CT001",
+            "sensor_name": 1050,
+            "sensor_type": 202,
+            "sensor_place": 61,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 200.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "88MKA10CT002",
+            "sensor_name": 1050,
+            "sensor_type": 202,
+            "sensor_place": 61,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 200.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "88MKA10CT003",
+            "sensor_name": 1050,
+            "sensor_type": 202,
+            "sensor_place": 61,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 200.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "88MKA10CT004",
+            "sensor_name": 1050,
+            "sensor_type": 202,
+            "sensor_place": 61,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 200.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MKA10CT005",
+            "sensor_name": 1050,
+            "sensor_type": 202,
+            "sensor_place": 61,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 200.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "88MKA10CT006",
+            "sensor_name": 1050,
+            "sensor_type": 202,
+            "sensor_place": 61,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 200.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "88MKA10CT007",
+            "sensor_name": 1050,
+            "sensor_type": 202,
+            "sensor_place": 61,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 200.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "88MKA10CT008",
+            "sensor_name": 1050,
+            "sensor_type": 202,
+            "sensor_place": 61,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 200.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88MKA10CT009",
+            "sensor_name": 1050,
+            "sensor_type": 202,
+            "sensor_place": 61,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 200.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "88MKA10CT010",
+            "sensor_name": 1050,
+            "sensor_type": 202,
+            "sensor_place": 61,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 200.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "88MKA10CT011",
+            "sensor_name": 1050,
+            "sensor_type": 202,
+            "sensor_place": 61,
+            "sensor_status": 3,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 200.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "88MKA10CT012",
+            "sensor_name": 1050,
+            "sensor_type": 202,
+            "sensor_place": 61,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 200.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88NAB15CF001",
+            "sensor_name": 1020,
+            "sensor_type": 351,
+            "sensor_place": 62,
+            "sensor_status": 1,
+            "sensor_units": 25,
+            "sensor_lower": 0.0,
+            "sensor_upper": 200.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88NAB15CF002",
+            "sensor_name": 1020,
+            "sensor_type": 351,
+            "sensor_place": 62,
+            "sensor_status": 1,
+            "sensor_units": 25,
+            "sensor_lower": 0.0,
+            "sensor_upper": 200.0,
+            "sensor_protect": 0
+        },
+        {
+            "item_id": "88PGM21CT001",
+            "sensor_name": 1001,
+            "sensor_type": 402,
+            "sensor_place": 63,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 80.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "88PGM22CT001",
+            "sensor_name": 1002,
+            "sensor_type": 402,
+            "sensor_place": 63,
+            "sensor_status": 2,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 80.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "88PGM23CT001",
+            "sensor_name": 1003,
+            "sensor_type": 402,
+            "sensor_place": 63,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 80.0,
+            "sensor_protect": 1
+        },
+        {
+            "item_id": "88PGM24CT001",
+            "sensor_name": 1004,
+            "sensor_type": 402,
+            "sensor_place": 63,
+            "sensor_status": 1,
+            "sensor_units": 20,
+            "sensor_lower": 0.0,
+            "sensor_upper": 80.0,
+            "sensor_protect": 1
+        }
+    ],
+    "StatusLog": [
+        {
+            "log_id": 6,
+            "item_id": "81MBL30CT002",
+            "old_status": 1,
+            "new_status": 2,
+            "old_type": 201,
+            "new_type": 201,
+            "old_protect": 1,
+            "new_protect": 1,
+            "changed_by": 1,
+            "change_time": "2026-02-10T16:41:45"
+        },
+        {
+            "log_id": 7,
+            "item_id": "81MBL30CT002",
+            "old_status": 2,
+            "new_status": 1,
+            "old_type": 201,
+            "new_type": 201,
+            "old_protect": 1,
+            "new_protect": 1,
+            "changed_by": 3,
+            "change_time": "2026-02-10T16:42:38"
+        },
+        {
+            "log_id": 8,
+            "item_id": "88LAA10CL004",
+            "old_status": 1,
+            "new_status": 3,
+            "old_type": 351,
+            "new_type": 351,
+            "old_protect": 0,
+            "new_protect": 0,
+            "changed_by": 3,
+            "change_time": "2026-02-10T16:54:58"
+        },
+        {
+            "log_id": 20,
+            "item_id": "88MAD10CY022",
+            "old_status": 2,
+            "new_status": 1,
+            "old_type": 302,
+            "new_type": 302,
+            "old_protect": 0,
+            "new_protect": 1,
+            "changed_by": 1,
+            "change_time": "2026-02-10T21:07:39"
+        },
+        {
+            "log_id": 21,
+            "item_id": "88MAD10CY022",
+            "old_status": 1,
+            "new_status": 2,
+            "old_type": 302,
+            "new_type": 302,
+            "old_protect": 1,
+            "new_protect": 1,
+            "changed_by": 3,
+            "change_time": "2026-02-10T21:10:59"
+        },
+        {
+            "log_id": 22,
+            "item_id": "88LAA10CL002",
+            "old_status": 1,
+            "new_status": 2,
+            "old_type": 351,
+            "new_type": 351,
+            "old_protect": 0,
+            "new_protect": 0,
+            "changed_by": 1,
+            "change_time": "2026-02-11T14:22:47"
+        },
+        {
+            "log_id": 23,
+            "item_id": "88MAD10CY022",
+            "old_status": 2,
+            "new_status": 2,
+            "old_type": 302,
+            "new_type": 302,
+            "old_protect": 1,
+            "new_protect": 1,
+            "changed_by": 2,
+            "change_time": "2026-02-15T11:27:01"
+        },
+        {
+            "log_id": 24,
+            "item_id": "88MAB11CG001",
+            "old_status": 1,
+            "new_status": 2,
+            "old_type": 251,
+            "new_type": 251,
+            "old_protect": 0,
+            "new_protect": 0,
+            "changed_by": 4,
+            "change_time": "2026-02-15T12:05:50"
+        },
+        {
+            "log_id": 25,
+            "item_id": "88MAB11CG001",
+            "old_status": 2,
+            "new_status": 1,
+            "old_type": 251,
+            "new_type": 251,
+            "old_protect": 0,
+            "new_protect": 0,
+            "changed_by": 1,
+            "change_time": "2026-02-15T12:07:01"
+        },
+        {
+            "log_id": 26,
+            "item_id": "81MBL30CT005",
+            "old_status": 1,
+            "new_status": 1,
+            "old_type": 201,
+            "new_type": 201,
+            "old_protect": 1,
+            "new_protect": 1,
+            "changed_by": 3,
+            "change_time": "2026-02-15T15:05:19"
+        },
+        {
+            "log_id": 27,
+            "item_id": "81MBL30CT005",
+            "old_status": 1,
+            "new_status": 2,
+            "old_type": 201,
+            "new_type": 201,
+            "old_protect": 1,
+            "new_protect": 1,
+            "changed_by": 3,
+            "change_time": "2026-02-15T15:05:31"
+        },
+        {
+            "log_id": 28,
+            "item_id": "81MBL30CT005",
+            "old_status": 2,
+            "new_status": 1,
+            "old_type": 201,
+            "new_type": 201,
+            "old_protect": 1,
+            "new_protect": 1,
+            "changed_by": 3,
+            "change_time": "2026-02-15T15:05:58"
+        },
+        {
+            "log_id": 29,
+            "item_id": "81MBL30CT005",
+            "old_status": 1,
+            "new_status": 1,
+            "old_type": 201,
+            "new_type": 201,
+            "old_protect": 1,
+            "new_protect": 1,
+            "changed_by": 3,
+            "change_time": "2026-02-15T15:16:35"
+        },
+        {
+            "log_id": 30,
+            "item_id": "88MAD20CY019",
+            "old_status": 1,
+            "new_status": 1,
+            "old_type": 302,
+            "new_type": 302,
+            "old_protect": 0,
+            "new_protect": 0,
+            "changed_by": 2,
+            "change_time": "2026-02-17T16:52:58"
+        },
+        {
+            "log_id": 31,
+            "item_id": "88LAA10CL002",
+            "old_status": 2,
+            "new_status": 2,
+            "old_type": 351,
+            "new_type": 351,
+            "old_protect": 0,
+            "new_protect": 0,
+            "changed_by": 3,
+            "change_time": "2026-02-18T13:36:11"
+        },
+        {
+            "log_id": 32,
+            "item_id": "88MAB11CG001",
+            "old_status": 1,
+            "new_status": 1,
+            "old_type": 251,
+            "new_type": 251,
+            "old_protect": 0,
+            "new_protect": 0,
+            "changed_by": 3,
+            "change_time": "2026-02-18T14:11:03"
+        },
+        {
+            "log_id": 33,
+            "item_id": "88LAA10CL002",
+            "old_status": 2,
+            "new_status": 3,
+            "old_type": 351,
+            "new_type": 351,
+            "old_protect": 0,
+            "new_protect": 0,
+            "changed_by": 3,
+            "change_time": "2026-02-18T14:22:43"
+        }
+    ]
+}
